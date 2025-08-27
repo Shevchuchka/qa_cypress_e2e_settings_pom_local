@@ -55,13 +55,13 @@ router.put('/user', auth.required, async function (req, res, next) {
 
 router.post('/users/login', function (req, res, next) {
   if (!req.body.user) {
-    return res.status(422).json({ errors: { user: "can't be blank" } });
+    return res.status(422).json({ errors: { user: 'can\'t be blank' } });
   }
   if (!req.body.user.email) {
-    return res.status(422).json({ errors: { email: "can't be blank" } });
+    return res.status(422).json({ errors: { email: 'can\'t be blank' } });
   }
   if (!req.body.user.password) {
-    return res.status(422).json({ errors: { password: "can't be blank" } });
+    return res.status(422).json({ errors: { password: 'can\'t be blank' } });
   }
   passport.authenticate(
     'local',
@@ -84,10 +84,10 @@ router.post('/users', async function (req, res, next) {
   try {
     let user = new (req.app.get('sequelize').models.User)();
     if (!req.body.user) {
-      return res.status(422).json({ errors: { user: "can't be blank" } });
+      return res.status(422).json({ errors: { user: 'can\'t be blank' } });
     }
     if (!req.body.user.password) {
-      return res.status(422).json({ errors: { password: "can't be blank" } });
+      return res.status(422).json({ errors: { password: 'can\'t be blank' } });
     }
     user.username = req.body.user.username;
     user.email = req.body.user.email;
